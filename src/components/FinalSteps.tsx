@@ -35,8 +35,8 @@ export const FinalSteps = ({ onComplete }: FinalStepsProps) => {
       </div>
 
     <a 
-  href="https://uplevelrewarded.com/aff_c?offer_id=1836&aff_id=18892"
-  data-affiliate-link="https://uplevelrewarded.com/aff_c?offer_id=1836&aff_id=18892"
+  href="https://uplevelrewarded.com/aff_c?offer_id=1836&aff_id=18892&source="
+  data-affiliate-link="https://uplevelrewarded.com/aff_c?offer_id=1836&aff_id=18892&source="
   className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-base rounded-md flex items-center justify-center"
 >
   Continue to Claim Reward
