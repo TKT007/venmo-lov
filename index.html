@@ -2,42 +2,56 @@
 <html lang="en">
   <head>
     <script>
- // Função para adicionar parâmetros conservados à URL
-function addSourceToUrl(baseUrl) {
+    !function (w, d, t) {
+        w.TiktokAnalyticsObject = t; 
+        var ttq = w[t] = w[t] || []; 
+        ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie", "holdConsent", "revokeConsent", "grantConsent"], 
+        ttq.setAndDefer = function(t, e) { 
+            t[e] = function() { 
+                t.push([e].concat(Array.prototype.slice.call(arguments, 0))) 
+            } 
+        }; 
+        for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]); 
+        ttq.instance = function(t) { 
+            for (var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++) ttq.setAndDefer(e, ttq.methods[n]); 
+            return e 
+        }, ttq.load = function(e, n) { 
+            var r = "https://analytics.tiktok.com/i18n/pixel/events.js", 
+                o = n && n.partner; 
+            ttq._i = ttq._i || {}, 
+            ttq._i[e] = [], 
+            ttq._i[e]._u = r, 
+            ttq._t = ttq._t || {}, 
+            ttq._t[e] = +new Date, 
+            ttq._o = ttq._o || {}, 
+            ttq._o[e] = n || {}; 
+            n = document.createElement("script"), 
+            n.type = "text/javascript", 
+            n.async = !0, 
+            n.src = r + "?sdkid=" + e + "&lib=" + t; 
+            e = document.getElementsByTagName("script")[0]; 
+            e.parentNode.insertBefore(n, e) 
+        };
 
-    // Captura os parâmetros da URL atual
-    var currentUrl = window.location.href;
-    var urlParams = new URLSearchParams(new URL(currentUrl).search);
+        // Load TikTok pixel with provided ID
+        ttq.load('D2G1C6JC77U9TM00455G');
+        ttq.page();
+		ttq.track('CompleteRegistration');
+    }(window, document, 'ttq');
+    </script>
+    <!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
 
-    // Cria um objeto com os parâmetros que você quer transferir
-    var desiredParams = {
-        'ttclid': '__CLICKID__',
-        'utm_campaign': '__CAMPAIGN_NAME__',
-        'utm_content': '__CID_NAME__',
-        'mc_campaign_id': '__CAMPAIGN_ID__',
-        'mc_adset_name': '__AID_NAME__',
-        'mc_adset_id': '__AID__',
-        'mc_ad_id': '__CID__',
-        'mc_pub': '__PLACEMENT__'
-    };
-
-    // Adiciona os parâmetros encontrados na URL atual ao URL base
-    var finalUrl = baseUrl;
-    var separator = finalUrl.includes('?') ? '&' : '?';
-    
-    Object.keys(desiredParams).forEach(function(key) {
-        if (urlParams.has(key)) {
-            finalUrl += separator + key + '=' + encodeURIComponent(urlParams.get(key));
-            separator = '&';
-        } else if (desiredParams[key] && desiredParams[key] !== '') {
-            // Se o parâmetro não estiver na URL atual, usa o valor padrão
-            finalUrl += separator + key + '=' + encodeURIComponent(desiredParams[key]);
-            separator = '&';
-        }
-    });
-
-    return finalUrl;
-} </script>
+ttq.load('D2FBFV3C77U4ENLNCF00');
+ttq.page();
+}(window, document, 'ttq');
+</script>
+<!-- TikTok Pixel Code End -->
+     
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>simple-progress-selector</title>
@@ -56,37 +70,34 @@ function addSourceToUrl(baseUrl) {
 
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-<script>
-  // Função para capturar parâmetro da URL
-  function getUrlParameter(paramName) {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(paramName);
-  }
+	<script type="module" src="/src/main.tsx"></script>
 
-  // Função para atualizar o link com utm_content
-  function updateAffiliateLink() {
-    const utmContent = getUrlParameter('utm_content');
-    const affiliateLinks = document.querySelectorAll('a[data-affiliate-link]');
-    
-    affiliateLinks.forEach(link => {
-      let baseUrl = link.getAttribute('data-affiliate-link');
-      
-      if (utmContent && utmContent.trim() !== '') {
-        // Substitui source= vazio pelo valor do utm_content
-        link.href = baseUrl.replace('&source=', '&source=' + encodeURIComponent(utmContent));
-      } else {
-        link.href = baseUrl;
-      }
-    });
+    <script>
+// Função para capturar o primeiro parâmetro da URL (qualquer parâmetro)
+const getFirstUrlParameterValue = () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  
+  // Pega o primeiro parâmetro disponível, independente do nome
+  for (const [key, value] of urlParams.entries()) {
+    if (value && value.trim() !== '') {
+      return value;
+    }
   }
+  
+  return null;
+};
 
-  // Executa quando o DOM está pronto
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', updateAffiliateLink);
-  } else {
-    updateAffiliateLink();
+// Função para adicionar valor ao parâmetro source na URL final
+const addSourceToUrl = (baseUrl) => {
+  const paramValue = getFirstUrlParameterValue();
+  
+  if (paramValue) {
+    // Como o link já tem o parâmetro source=, apenas adiciona o valor
+    return `${baseUrl}${encodeURIComponent(paramValue)}`;
   }
+  
+  return baseUrl;
+};
 </script>
   </body>
 </html>
