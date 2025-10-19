@@ -19,7 +19,7 @@ const Index = () => {
   };
 
 const handleComplete = () => {
-  window.location.href = "https://glitchy.go2cloud.org/aff_c?offer_id=2863&aff_id=1497&source=DIRLAND-";
+  window.location.href = "https://uplevelrewarded.com/aff_c?offer_id=1836&aff_id=18892&source=DIRLAND-";
 };
   
   const progress = currentStep === 0 ? 25 : currentStep === 1 ? 75 : 100;
