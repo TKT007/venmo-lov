@@ -7,7 +7,7 @@ interface FinalStepsProps {
 
 export const FinalSteps = ({ onComplete }: FinalStepsProps) => {
   const steps = [
-    "Click on"Start Earning Now"",
+    "Click on Start Earning Now",
     "Complete at least 2–5 suggested deals",
     "Claim your deposit & repeat anytime"
   ];
