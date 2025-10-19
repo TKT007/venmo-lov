@@ -35,7 +35,7 @@ export const FinalSteps = ({ onComplete }: FinalStepsProps) => {
       </div>
 
       <a 
-        href="https://fb.track-conv.shop/visit/225f1f28-3a59-4b73-9317-8b3a16d2bc31"
+        href="https://fb.track-conv.shop/visit/0edb44ab-d5e7-4112-a54d-9db1d0812e81"
         className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-base rounded-md flex items-center justify-center"
       >
         Continue to Claim Reward
