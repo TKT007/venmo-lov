@@ -39,7 +39,7 @@ const handleComplete = () => {
             {/* Progress Section */}
             <div className="space-y-3">
               <div className="text-center">
-                <p className="text-sm font-medium text-muted-foreground">Reward Progress</p>
+                <p className="text-sm font-medium text-muted-foreground"></p>
               </div>
               <ProgressBar progress={progress} />
             </div>
