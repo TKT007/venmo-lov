@@ -57,32 +57,33 @@ function addSourceToUrl(baseUrl) {
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-      <script>
-// Função para capturar o primeiro parâmetro da URL (qualquer parâmetro)
-const getFirstUrlParameterValue = () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  
-  // Pega o primeiro parâmetro disponível, independente do nome
-  for (const [key, value] of urlParams.entries()) {
-    if (value && value.trim() !== '') {
-      return value;
+     <script>
+  // Função para capturar parâmetro da URL
+  function getUrlParameter(paramName) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(paramName);
+  }
+
+  // Função para atualizar o link com utm_content
+  function updateAffiliateLink() {
+    const utmContent = getUrlParameter('utm_content');
+    const affiliateLinks = document.querySelectorAll('a[data-affiliate-link]');
+    
+    if (affiliateLinks.length > 0 && utmContent && utmContent.trim() !== '') {
+      affiliateLinks.forEach(link => {
+        const baseUrl = link.getAttribute('data-affiliate-link');
+        const separator = baseUrl.includes('?') ? '&' : '?';
+        link.href = baseUrl + separator + 'source=' + encodeURIComponent(utmContent);
+      });
     }
   }
-  
-  return null;
-};
 
-// Função para adicionar valor ao parâmetro source na URL final
-const addSourceToUrl = (baseUrl) => {
-  const paramValue = getFirstUrlParameterValue();
-  
-  if (paramValue) {
-    // Como o link já tem o parâmetro source=, apenas adiciona o valor
-    return `${baseUrl}${encodeURIComponent(paramValue)}`;
+  // Executa quando o DOM está pronto
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', updateAffiliateLink);
+  } else {
+    updateAffiliateLink();
   }
-  
-  return baseUrl;
-};
 </script>
   </body>
 </html>
