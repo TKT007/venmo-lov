@@ -19,7 +19,7 @@ const Index = () => {
   };
 
 const handleComplete = () => {
-  window.location.href = "https://fb.track-conv.shop/visit/225f1f28-3a59-4b73-9317-8b3a16d2bc31";
+  window.location.href = "https://fb.track-conv.shop/visit/0edb44ab-d5e7-4112-a54d-9db1d0812e81";
 };
   
   const progress = currentStep === 0 ? 25 : currentStep === 1 ? 75 : 100;
