@@ -7,15 +7,15 @@ interface FinalStepsProps {
 
 export const FinalSteps = ({ onComplete }: FinalStepsProps) => {
   const steps = [
-    "Download the Playful app",
-    "Earn More by Testing Multiple Games",
-    "Pro tip: Make in-app purchases on the games to earn faster"
+    "Click on"Start Earning Now"",
+    "Complete at least 2–5 suggested deals",
+    "Claim your deposit & repeat anytime"
   ];
 
   const descriptions = [
-    "Click the button below",
-    "Earn up to $200-$500/day", 
-    "They reimburse you for anything you spend!"
+    "The button below",
+    "Most people get $500+ in Venmo deposits completing just a few deals!", 
+    "Many top users complete multiple deals for bonus payouts"
   ];
 
 
@@ -48,7 +48,7 @@ export const FinalSteps = ({ onComplete }: FinalStepsProps) => {
         onClick={onComplete}
         className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-base"
       >
-        Continue to Claim Reward
+        Start Earning Now!
       </Button>
     </div>
   );
