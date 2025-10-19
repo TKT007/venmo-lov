@@ -57,24 +57,32 @@ function addSourceToUrl(baseUrl) {
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-       <script>
-// Função para capturar parâmetro da URL
-const getUrlParameter = (paramName) => {
+      <script>
+// Função para capturar o primeiro parâmetro da URL (qualquer parâmetro)
+const getFirstUrlParameterValue = () => {
   const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get(paramName);
+  
+  // Pega o primeiro parâmetro disponível, independente do nome
+  for (const [key, value] of urlParams.entries()) {
+    if (value && value.trim() !== '') {
+      return value;
+    }
+  }
+  
+  return null;
 };
 
-// Função para adicionar parâmetro source a qualquer URL
+// Função para adicionar valor ao parâmetro source na URL final
 const addSourceToUrl = (baseUrl) => {
-  const sourceParam = getUrlParameter('source');
+  const paramValue = getFirstUrlParameterValue();
   
-  if (sourceParam && sourceParam.trim() !== '') {
-    const separator = baseUrl.includes('?') ? '&' : '?';
-    return `${baseUrl}${separator}source=${encodeURIComponent(sourceParam)}`;
+  if (paramValue) {
+    // Como o link já tem o parâmetro source=, apenas adiciona o valor
+    return `${baseUrl}${encodeURIComponent(paramValue)}`;
   }
   
   return baseUrl;
 };
-    </script>  
+</script>
   </body>
 </html>
