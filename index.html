@@ -57,7 +57,7 @@ function addSourceToUrl(baseUrl) {
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-     <script>
+   <script>
   // Função para capturar parâmetro da URL
   function getUrlParameter(paramName) {
     const urlParams = new URLSearchParams(window.location.search);
@@ -71,9 +71,10 @@ function addSourceToUrl(baseUrl) {
     
     if (affiliateLinks.length > 0 && utmContent && utmContent.trim() !== '') {
       affiliateLinks.forEach(link => {
-        const baseUrl = link.getAttribute('data-affiliate-link');
+        let baseUrl = link.getAttribute('data-affiliate-link');
         const separator = baseUrl.includes('?') ? '&' : '?';
-        link.href = baseUrl + separator + 'source=' + encodeURIComponent(utmContent);
+        baseUrl = baseUrl + separator + 'source=' + encodeURIComponent(utmContent);
+        link.href = baseUrl;
       });
     }
   }
