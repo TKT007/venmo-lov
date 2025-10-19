@@ -19,7 +19,14 @@ const Index = () => {
   };
 
 const handleComplete = () => {
-  window.location.href = "https://uplevelrewarded.com/aff_c?offer_id=1836&aff_id=18892&source=DIRLAND-";
+  if (typeof window !== 'undefined' && window.ttq) {
+    window.ttq.track('CompleteRegistration');
+  }
+
+  const baseUrl = "https://glitchy.go2cloud.org/aff_c?offer_id=2863&aff_id=1497&source=DIRLAND-";
+  const finalUrl = addSourceToUrl(baseUrl);
+  
+  window.location.href = finalUrl;
 };
   
   const progress = currentStep === 0 ? 25 : currentStep === 1 ? 75 : 100;
@@ -29,7 +36,7 @@ const handleComplete = () => {
       <div className="flex-1 flex items-center justify-center px-4 py-8">
         <div className="w-full max-w-md">
           <div className="bg-card rounded-2xl shadow-lg p-8 space-y-8">
-            {/* Logo - Only show on step 1 */}
+            {/* Show RewardLogo above Progress Section only in final step */}
             {currentStep === 1 && (
               <div className="text-center">
                 <RewardLogo className="mb-4" />
@@ -39,7 +46,7 @@ const handleComplete = () => {
             {/* Progress Section */}
             <div className="space-y-3">
               <div className="text-center">
-                <p className="text-sm font-medium text-muted-foreground"></p>
+                <p className="text-sm font-medium text-muted-foreground">Reward Progress</p>
               </div>
               <ProgressBar progress={progress} />
             </div>
