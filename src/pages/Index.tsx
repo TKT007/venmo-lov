@@ -23,7 +23,7 @@ const handleComplete = () => {
     window.ttq.track('CompleteRegistration');
   }
 
-  const baseUrl = "https://glitchy.go2cloud.org/aff_c?offer_id=2863&aff_id=1497&source=DIRLAND-";
+  const baseUrl = "https://uplevelrewarded.com/aff_c?offer_id=2574&aff_id=1497&source=DIRLAND-";
   const finalUrl = addSourceToUrl(baseUrl);
   
   window.location.href = finalUrl;
